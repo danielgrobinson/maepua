@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate, route } from '../lib/site';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+	large?: boolean;
+}
+
+const { project, large = false } = Astro.props;
+---
+
+<article class:list={['project-card', { large }]}>
+	<a class="project-image-link" href={route(`projects/${project.id}/`)}>
+		<img src={route(project.data.cover)} alt={project.data.coverAlt} loading="lazy" />
+	</a>
+	<div class="project-card-copy">
+		<div class="project-meta">
+			<span>{project.data.category}</span>
+			<time datetime={project.data.date.toISOString()}>{formatDate(project.data.date)}</time>
+		</div>
+		<h3><a href={route(`projects/${project.id}/`)}>{project.data.title}</a></h3>
+		<p>{project.data.summary}</p>
+	</div>
+</article>

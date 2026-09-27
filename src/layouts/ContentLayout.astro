@@ -1,0 +1,34 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { formatDate, route } from '../lib/site';
+
+interface Props {
+	title: string;
+	description: string;
+	date: Date;
+	cover: string;
+	coverAlt: string;
+	label: string;
+	meta?: string;
+}
+
+const { title, description, date, cover, coverAlt, label, meta } = Astro.props;
+---
+
+<BaseLayout title={`${title} — Maepua`} description={description} image={cover}>
+	<article class="content-page">
+		<header class="content-header">
+			<p class="eyebrow">{label}</p>
+			<h1>{title}</h1>
+			<p class="content-deck">{description}</p>
+			<div class="content-meta">
+				<time datetime={date.toISOString()}>{formatDate(date)}</time>
+				{meta && <span>{meta}</span>}
+			</div>
+		</header>
+		<img class="content-hero" src={route(cover)} alt={coverAlt} />
+		<div class="prose">
+			<slot />
+		</div>
+	</article>
+</BaseLayout>

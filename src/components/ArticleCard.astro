@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate, route } from '../lib/site';
+
+interface Props {
+	article: CollectionEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+---
+
+<article class="article-card">
+	<a class="article-thumb" href={route(`journal/${article.id}/`)}>
+		<img src={route(article.data.cover)} alt={article.data.coverAlt} loading="lazy" />
+	</a>
+	<div>
+		<div class="article-meta">
+			<time datetime={article.data.date.toISOString()}>{formatDate(article.data.date)}</time>
+			<span>{article.data.readingTime}</span>
+		</div>
+		<h3><a href={route(`journal/${article.id}/`)}>{article.data.title}</a></h3>
+		<p>{article.data.deck}</p>
+	</div>
+</article>

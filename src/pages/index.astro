@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleCard from '../components/ArticleCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { route } from '../lib/site';
+
+const projects = (await getCollection('projects')).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const featured = projects.filter((project) => project.data.featured).slice(0, 3);
+const articles = (await getCollection('articles'))
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.slice(0, 3);
+---
+
+<BaseLayout>
+	<section class="hero">
+		<div class="hero-copy">
+			<p class="eyebrow">Projects · Photographs · Field notes</p>
+			<h1>Things worth making.<br /><em>Stories worth keeping.</em></h1>
+			<p class="hero-intro">
+				Maepua is a living collection of practical work, visual studies, and observations
+				gathered along the way.
+			</p>
+			<div class="hero-actions">
+				<a class="button primary" href={route('projects/')}>Explore the work</a>
+				<a class="text-link" href={route('about/')}>About Maepua <span aria-hidden="true">→</span></a>
+			</div>
+		</div>
+		<div class="hero-art" aria-label="A rising sun over layered warm-toned hills">
+			<div class="sun"></div>
+			<div class="hill hill-back"></div>
+			<div class="hill hill-front"></div>
+			<p>e pluribus unum</p>
+		</div>
+	</section>
+
+	<section class="section-block">
+		<div class="section-heading">
+			<div>
+				<p class="eyebrow">Selected work</p>
+				<h2>Recent projects</h2>
+			</div>
+			<a class="text-link" href={route('projects/')}>View all projects <span aria-hidden="true">→</span></a>
+		</div>
+		<div class="project-grid">
+			{featured.map((project, index) => <ProjectCard project={project} large={index === 0} />)}
+		</div>
+	</section>
+
+	<section class="statement-band">
+		<p class="eyebrow">Working principles</p>
+		<blockquote>
+			“Begin with what is useful. Pay attention to what is beautiful. Leave a clear trail for
+			the next person.”
+		</blockquote>
+	</section>
+
+	<section class="section-block journal-preview">
+		<div class="section-heading">
+			<div>
+				<p class="eyebrow">From the journal</p>
+				<h2>Notes from the workbench</h2>
+			</div>
+			<a class="text-link" href={route('journal/')}>Read the journal <span aria-hidden="true">→</span></a>
+		</div>
+		<div class="article-list">
+			{articles.map((article) => <ArticleCard article={article} />)}
+		</div>
+	</section>
+</BaseLayout>

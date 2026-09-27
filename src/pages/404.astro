@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { route } from '../lib/site';
+---
+
+<BaseLayout title="Page not found — Maepua">
+	<section class="not-found">
+		<p class="eyebrow">404</p>
+		<h1>This page wandered off.</h1>
+		<p>The archive is still here.</p>
+		<a class="button primary" href={route()}>Return home</a>
+	</section>
+</BaseLayout>

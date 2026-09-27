@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { route, SITE } from '../lib/site';
+---
+
+<BaseLayout title="About — Maepua" description="The purpose and working principles behind Maepua.">
+	<section class="about-hero">
+		<div>
+			<p class="eyebrow">About Maepua</p>
+			<h1>A place for considered work and the stories around it.</h1>
+		</div>
+		<img src={route('maepua-mark.svg')} alt="Maepua rising sun emblem" />
+	</section>
+
+	<section class="about-grid">
+		<div class="prose">
+			<h2>The idea</h2>
+			<p>
+				Maepua brings projects, photographs, and written observations into one durable
+				archive. It favors clear explanations, useful detail, and images that show how a
+				thing came together.
+			</p>
+			<p>
+				This starter text is intentionally broad. Replace it with the real story, people,
+				and purpose behind the work.
+			</p>
+		</div>
+		<aside class="principles-card">
+			<p class="eyebrow">Working principles</p>
+			<ol>
+				<li><span>01</span> Make the useful thing understandable.</li>
+				<li><span>02</span> Show process, not only polish.</li>
+				<li><span>03</span> Prefer durable ideas to passing novelty.</li>
+				<li><span>04</span> Leave room for revision.</li>
+			</ol>
+		</aside>
+	</section>
+
+	<section class="contact-band">
+		<p class="eyebrow">Start a conversation</p>
+		<h2>Have a question or a project to share?</h2>
+		<a class="button primary" href={`mailto:${SITE.email}`}>Write to Maepua</a>
+	</section>
+</BaseLayout>

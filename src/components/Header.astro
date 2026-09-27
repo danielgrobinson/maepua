@@ -1,0 +1,24 @@
+---
+import { route, SITE } from '../lib/site';
+
+const currentPath = Astro.url.pathname;
+const links = [
+	{ label: 'Projects', href: route('projects/') },
+	{ label: 'Journal', href: route('journal/') },
+	{ label: 'About', href: route('about/') },
+];
+---
+
+<header class="site-header">
+	<a class="brand" href={route()} aria-label={`${SITE.name} home`}>
+		<span class="brand-sun" aria-hidden="true"></span>
+		<span>{SITE.name}</span>
+	</a>
+	<nav aria-label="Primary navigation">
+		{links.map((link) => (
+			<a class:list={['nav-link', { active: currentPath.startsWith(link.href) }]} href={link.href}>
+				{link.label}
+			</a>
+		))}
+	</nav>
+</header>

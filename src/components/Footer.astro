@@ -1,0 +1,16 @@
+---
+import { route, SITE } from '../lib/site';
+---
+
+<footer class="site-footer">
+	<div>
+		<p class="eyebrow">Maepua</p>
+		<p class="footer-statement">Made slowly, shared openly.</p>
+	</div>
+	<div class="footer-links">
+		<a href={route('projects/')}>Projects</a>
+		<a href={route('journal/')}>Journal</a>
+		<a href={`mailto:${SITE.email}`}>Contact</a>
+	</div>
+	<p class="copyright">© {new Date().getFullYear()} {SITE.name}</p>
+</footer>

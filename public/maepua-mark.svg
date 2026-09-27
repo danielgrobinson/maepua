@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1536 1588" width="1536" height="1588">
+  <defs>
+    <path id="motto-arc" d="M 236 651 A 650 650 0 0 1 1300 651"/>
+    <style>
+      .sun {
+        fill: none;
+        stroke: #c9783d;
+        stroke-width: 28;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .ground {
+        fill: none;
+        stroke: #4f7a4f;
+        stroke-width: 28;
+        stroke-linecap: round;
+      }
+      .title {
+        fill: #a43f3f;
+        font-family: "Times New Roman", "Times", serif;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-anchor: middle;
+      }
+      .motto {
+        fill: #3f6591;
+      }
+    </style>
+  </defs>
+
+  <rect width="1536" height="1588" fill="#ffffff"/>
+
+  <text class="title" x="768" y="205" font-size="154">MAKE AMERICA</text>
+
+  <g transform="translate(0 80)">
+    <text class="motto"
+          font-family="Georgia, Times New Roman, serif"
+          font-size="124"
+          font-weight="700"
+          font-style="italic"
+          letter-spacing="7px"
+          text-anchor="middle">
+      <textPath xlink:href="#motto-arc" startOffset="50%">e&#8239;&#8239;pluribus&#8239;&#8239;unum</textPath>
+    </text>
+
+    <g class="sun">
+      <path d="M 512 1024 A 256 256 0 0 1 1024 1024"/>
+
+      <path d="M 449 939 L 266 889"/>
+      <path d="M 515 812 L 370 690"/>
+      <path d="M 629 725 L 548 553"/>
+      <path d="M 768 694 L 768 504"/>
+      <path d="M 907 725 L 988 553"/>
+      <path d="M 1021 812 L 1166 690"/>
+      <path d="M 1087 939 L 1270 889"/>
+    </g>
+
+    <path class="ground" d="M 340 1024 H 1196"/>
+
+    <text class="title" x="768" y="1297" font-size="154">AGAIN</text>
+  </g>
+</svg>
