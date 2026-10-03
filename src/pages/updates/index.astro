@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import UpdateCard from '../../components/UpdateCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const updates = (await getCollection('updates')).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<BaseLayout
+	title="Updates — E Pluribus Unum Again"
+	description="Project progress, completed work, and next steps for Make America E Pluribus Unum Again."
+>
+	<header class="page-intro">
+		<p class="eyebrow">Project log</p>
+		<h1>Updates</h1>
+		<p>
+			A record of what has happened, what is being prepared, and what comes next for the
+			project.
+		</p>
+	</header>
+	<div class="article-list article-archive">
+		{updates.map((update) => <UpdateCard update={update} />)}
+	</div>
+</BaseLayout>

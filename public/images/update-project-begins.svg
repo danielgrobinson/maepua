@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">E Pluribus Unum rising sun</title>
+  <description id="description">A terracotta sun rising over green ground beneath a blue sky</description>
+  <rect width="1600" height="900" fill="#e8dfcf"/>
+  <rect width="1600" height="560" fill="#d9e1e6"/>
+  <circle cx="800" cy="555" r="250" fill="#c9783d"/>
+  <path d="M0 565 Q400 475 800 575 T1600 565 V900 H0Z" fill="#71826a"/>
+  <path d="M0 690 Q430 555 850 680 T1600 640 V900 H0Z" fill="#3e5448"/>
+  <text x="800" y="150" fill="#3f6591" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-style="italic" font-weight="700" letter-spacing="8" text-anchor="middle">E PLURIBUS UNUM</text>
+</svg>

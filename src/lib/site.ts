@@ -1,8 +1,8 @@
 export const SITE = {
-	name: 'Maepua',
-	title: 'Maepua — Work, images, and field notes',
-	description: 'A warm editorial collection of projects, photographs, and articles.',
-	email: 'hello@example.com',
+	name: 'E Pluribus Unum Again',
+	title: 'Make America E Pluribus Unum Again',
+	description:
+		'A civic art project bringing “E Pluribus Unum”—“Out of many, one”—back into everyday view.',
 };
 
 export function route(path = '') {
@@ -16,5 +16,6 @@ export function formatDate(date: Date) {
 		month: 'long',
 		day: 'numeric',
 		year: 'numeric',
+		timeZone: 'UTC',
 	}).format(date);
 }

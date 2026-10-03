@@ -4,13 +4,13 @@ import { route, SITE } from '../lib/site';
 
 <footer class="site-footer">
 	<div>
-		<p class="eyebrow">Maepua</p>
-		<p class="footer-statement">Made slowly, shared openly.</p>
+		<p class="eyebrow">E Pluribus Unum</p>
+		<p class="footer-statement">Out of many, one.</p>
 	</div>
 	<div class="footer-links">
-		<a href={route('projects/')}>Projects</a>
-		<a href={route('journal/')}>Journal</a>
-		<a href={`mailto:${SITE.email}`}>Contact</a>
+		<a href={route('#story')}>Story</a>
+		<a href={route('#take-part')}>Take part</a>
+		<a href={route('updates/')}>Updates</a>
 	</div>
 	<p class="copyright">© {new Date().getFullYear()} {SITE.name}</p>
 </footer>

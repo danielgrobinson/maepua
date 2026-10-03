@@ -1,72 +1,151 @@
 ---
 import { getCollection } from 'astro:content';
-import ArticleCard from '../components/ArticleCard.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import UpdateCard from '../components/UpdateCard.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { route } from '../lib/site';
 
-const projects = (await getCollection('projects')).sort(
-	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
-const featured = projects.filter((project) => project.data.featured).slice(0, 3);
-const articles = (await getCollection('articles'))
+const updates = (await getCollection('updates'))
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-	.slice(0, 3);
+	.slice(0, 2);
 ---
 
 <BaseLayout>
-	<section class="hero">
-		<div class="hero-copy">
-			<p class="eyebrow">Projects · Photographs · Field notes</p>
-			<h1>Things worth making.<br /><em>Stories worth keeping.</em></h1>
+	<section class="project-hero">
+		<div class="project-hero-copy">
+			<p class="eyebrow">A civic art project</p>
+			<h1>Make America <em>E Pluribus Unum</em> Again.</h1>
 			<p class="hero-intro">
-				Maepua is a living collection of practical work, visual studies, and observations
-				gathered along the way.
+				A reminder that the American experiment begins with a demanding idea:
+				<strong>out of many, one.</strong>
 			</p>
 			<div class="hero-actions">
-				<a class="button primary" href={route('projects/')}>Explore the work</a>
-				<a class="text-link" href={route('about/')}>About Maepua <span aria-hidden="true">→</span></a>
+				<a class="button primary" href="#story">Read the story</a>
+				<a class="text-link" href="#take-part"
+					>Take part <span aria-hidden="true">→</span></a
+				>
 			</div>
 		</div>
-		<div class="hero-art" aria-label="A rising sun over layered warm-toned hills">
-			<div class="sun"></div>
-			<div class="hill hill-back"></div>
-			<div class="hill hill-front"></div>
-			<p>e pluribus unum</p>
+		<div class="project-mark">
+			<img
+				src={route('images/e-pluribus-unum-mark.svg')}
+				alt="Make America E Pluribus Unum Again rising-sun mark"
+			/>
 		</div>
 	</section>
 
-	<section class="section-block">
+	<section class="section-block motto-section" id="story">
 		<div class="section-heading">
 			<div>
-				<p class="eyebrow">Selected work</p>
-				<h2>Recent projects</h2>
+				<p class="eyebrow">The motto</p>
+				<h2>Out of many, one.</h2>
 			</div>
-			<a class="text-link" href={route('projects/')}>View all projects <span aria-hidden="true">→</span></a>
 		</div>
-		<div class="project-grid">
-			{featured.map((project, index) => <ProjectCard project={project} large={index === 0} />)}
+		<div class="history-grid">
+			<div class="history-lead">
+				<p>
+					<em>E Pluribus Unum</em> is Latin for “Out of many, one.” It describes a union
+					formed from distinct states, communities, histories, and people without asking
+					them to become identical.
+				</p>
+			</div>
+			<div class="prose history-copy">
+				<h3>Present from the founding era</h3>
+				<p>
+					The phrase entered the design of the Great Seal during the nation’s earliest
+					years and appeared on the seal adopted by Congress in 1782. It later became
+					familiar on official documents, government symbols, and American coins.
+				</p>
+				<p>
+					For generations, <em>E Pluribus Unum</em> functioned as the country’s de facto
+					motto. In 1956, Congress formally established “In God We Trust” as the national
+					motto, but the older phrase remained on the Great Seal and in public life.
+				</p>
+				<h3>A continuing promise</h3>
+				<p>
+					The words do not claim that unity is automatic. They set a standard: difference
+					is real, disagreement is inevitable, and the work of building a shared country
+					still belongs to all of us.
+				</p>
+			</div>
 		</div>
 	</section>
 
-	<section class="statement-band">
-		<p class="eyebrow">Working principles</p>
+	<section class="statement-band project-statement">
+		<p class="eyebrow">The project</p>
 		<blockquote>
-			“Begin with what is useful. Pay attention to what is beautiful. Leave a clear trail for
-			the next person.”
+			Put an old American promise back into everyday view—and invite people to consider what
+			it asks of us now.
 		</blockquote>
 	</section>
 
-	<section class="section-block journal-preview">
+	<section class="section-block purpose-section">
 		<div class="section-heading">
 			<div>
-				<p class="eyebrow">From the journal</p>
-				<h2>Notes from the workbench</h2>
+				<p class="eyebrow">Why this project</p>
+				<h2>A shared phrase for a divided moment.</h2>
 			</div>
-			<a class="text-link" href={route('journal/')}>Read the journal <span aria-hidden="true">→</span></a>
+		</div>
+		<div class="purpose-grid">
+			<p class="purpose-intro">
+				Make America E Pluribus Unum Again uses a familiar civic phrase as public art: on
+				shirts, postcards, and materials meant to move from person to person.
+			</p>
+			<div class="prose">
+				<p>
+					The project is not a call for everyone to think, worship, vote, or live in the
+					same way. It is an argument that pluralism and national belonging can exist
+					together—and that a democratic society depends on both.
+				</p>
+				<p>
+					The rising-sun mark treats the motto as something active rather than archival:
+					an idea worth carrying forward, sharing with friends, and placing where it can
+					start a conversation.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section-block participation-section" id="take-part">
+		<div class="section-heading">
+			<div>
+				<p class="eyebrow">Take part</p>
+				<h2>Wear it. Print it. Pass it on.</h2>
+			</div>
+		</div>
+		<div class="participation-grid">
+			<article class="action-card">
+				<p class="action-number">01</p>
+				<h3>Wear the message</h3>
+				<p>
+					A small collection of shirts will make the mark visible in ordinary public
+					spaces and help support the next round of project materials.
+				</p>
+				<span class="button disabled" aria-disabled="true">Shirts coming soon</span>
+			</article>
+			<article class="action-card">
+				<p class="action-number">02</p>
+				<h3>Share a postcard</h3>
+				<p>
+					Print-ready postcard files will be free to download, reproduce, and distribute
+					to friends, neighbors, classrooms, and community groups.
+				</p>
+				<span class="button disabled" aria-disabled="true">Files coming soon</span>
+			</article>
+		</div>
+	</section>
+
+	<section class="section-block updates-preview">
+		<div class="section-heading">
+			<div>
+				<p class="eyebrow">Project log</p>
+				<h2>Updates and next steps</h2>
+			</div>
+			<a class="text-link" href={route('updates/')}
+				>View all updates <span aria-hidden="true">→</span></a
+			>
 		</div>
 		<div class="article-list">
-			{articles.map((article) => <ArticleCard article={article} />)}
+			{updates.map((update) => <UpdateCard update={update} />)}
 		</div>
 	</section>
 </BaseLayout>
