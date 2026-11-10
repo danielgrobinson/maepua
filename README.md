@@ -29,6 +29,11 @@ npm run preview
 ## Deploy to GitHub Pages
 
 The workflow in `.github/workflows/deploy.yml` builds and deploys pushes to `main`.
-`astro.config.mjs` configures the custom domain `https://www.maepua.com`, and `public/CNAME`
+`astro.config.mjs` configures the custom domain `https://www.america-epluribusunum.com`, and `public/CNAME`
 ensures GitHub Pages serves that domain. In the repository settings, set
 **Pages → Build and deployment → Source** to **GitHub Actions**.
+
+Set **Pages → Custom domain** to `www.america-epluribusunum.com` and configure that
+hostname's DNS records for GitHub Pages. If the apex domain `america-epluribusunum.com`
+should redirect to `www`, configure its DNS records for GitHub Pages as well. Once
+DNS is verified and the certificate is available, enable **Enforce HTTPS**.
